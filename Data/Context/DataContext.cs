@@ -11,7 +11,11 @@ namespace Data.Context
 
         }
 
-        public DbSet<User> DbSetUser { get; set; }
+        public DbSet<Cliente> DbSetCliente { get; set; }
+        public DbSet<Vendedor> DbSetVendedor { get; set; }
+        public DbSet<Pedido> DbSetPedido { get; set; }
+        public DbSet<Categoria> DbSetCategoria { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UserMap());

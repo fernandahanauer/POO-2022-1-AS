@@ -1,3 +1,8 @@
+using Data.Context;
+using Data.Repositories;
+using Domain.Interfaces;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +11,14 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<DataContext>(
+                x=>x.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<IVendedorRepository,VendedorRepository>();
+//builder.Services.AddScoped<IClienteRepository,ClienteRepository>();
+//builder.Services.AddScoped<IPedidoRepository,PedidoRepository>();
+//builder.Services.AddScoped<ICategoriaRepository,CategoriaRepository>();
+//builder.Services.AddScoped<IPedidoProdutoRepository,PedidoProdutoRepository>();
 
 var app = builder.Build();
 

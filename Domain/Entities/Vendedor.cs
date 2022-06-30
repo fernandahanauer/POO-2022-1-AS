@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class User
+    public class Vendedor
     {
         public int Id { get; set; }
-        public String Name { get; set; }
+        public string Nome { get; set; }
+        public double Bonificacao { get; set; }
     }
 }
