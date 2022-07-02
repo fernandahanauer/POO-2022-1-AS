@@ -10,5 +10,6 @@ namespace Domain.Entities
         public int Id { get; set; }
         public string Nome { get; set; }
         public double Bonificacao { get; set; }
+        public List<Pedido> Pedidos { get; set; }
     }
 }

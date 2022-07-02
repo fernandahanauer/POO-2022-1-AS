@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Domain.Dtos
 {
-    public class Produto
+    public class ClienteDto
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public double Preco { get; set; }
-        public int Estoque { get; set; }
-        public Categoria Categoria { get; set; }
     }
 }

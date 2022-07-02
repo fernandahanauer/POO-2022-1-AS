@@ -4,10 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Domain.Entities;
 
-namespace Domain.Interfaces
+namespace Domain.Dtos
 {
-    public interface IUserRepository : IBaseRepository<Pedido>
+    public class CategoriaDto
     {
-        
+        public int Id { get; set; }
+        public string Nome { get; set; }
     }
 }

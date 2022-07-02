@@ -1,14 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Domain.Dtos;
 using Domain.Entities;
 
 namespace Domain.Interfaces
 {
-    public interface IVendedorRepository : IBaseRepository<Vendedor>
+    public interface IVendedorRepository : IBaseRepository
     {
-        Task<IEnumerable<VendedorDto>> GetVendedores();
+        Task<IEnumerable<VendedorDto>> GetVendedoresAsync();
+        Task<Vendedor> GetVendedorByIdAsync(int id);
     }
 }
