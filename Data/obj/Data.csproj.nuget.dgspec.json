@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\Documents\\ULBRA\\ULBRA 2022\\Orientação a objetos\\POO-2022-1B\\POO-AS\\POO-2022-1-AS\\Data\\Data.csproj": {}
+    "C:\\Users\\Usuario\\Documents\\ULBRA\\ULBRA 2022\\Orientação a objetos\\POO-2022-1B\\POO-AS\\POO-2022-1-AS\\data\\Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\Documents\\ULBRA\\ULBRA 2022\\Orientação a objetos\\POO-2022-1B\\POO-AS\\POO-2022-1-AS\\Data\\Data.csproj": {
+    "C:\\Users\\Usuario\\Documents\\ULBRA\\ULBRA 2022\\Orientação a objetos\\POO-2022-1B\\POO-AS\\POO-2022-1-AS\\data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Documents\\ULBRA\\ULBRA 2022\\Orientação a objetos\\POO-2022-1B\\POO-AS\\POO-2022-1-AS\\Data\\Data.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Documents\\ULBRA\\ULBRA 2022\\Orientação a objetos\\POO-2022-1B\\POO-AS\\POO-2022-1-AS\\data\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "C:\\Users\\Usuario\\Documents\\ULBRA\\ULBRA 2022\\Orientação a objetos\\POO-2022-1B\\POO-AS\\POO-2022-1-AS\\Data\\Data.csproj",
+        "projectPath": "C:\\Users\\Usuario\\Documents\\ULBRA\\ULBRA 2022\\Orientação a objetos\\POO-2022-1B\\POO-AS\\POO-2022-1-AS\\data\\Data.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\Documents\\ULBRA\\ULBRA 2022\\Orientação a objetos\\POO-2022-1B\\POO-AS\\POO-2022-1-AS\\Data\\obj\\",
+        "outputPath": "C:\\Users\\Usuario\\Documents\\ULBRA\\ULBRA 2022\\Orientação a objetos\\POO-2022-1B\\POO-AS\\POO-2022-1-AS\\data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"

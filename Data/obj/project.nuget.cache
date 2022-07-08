@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yghlQN++qX+JOfP5/FE9RS256S5taioW215Vt9ny+HKwkr2Ui6yNiloYu3VaaOvQ3Jos+FmQyxyGEBDs9VNgeQ==",
+  "dgSpecHash": "IhxQLYLFH61p5GdEne5yRYO97sTByQpHgZUZ3SmJBxNfn5LAGbSLLuB4CadeLHs0H6dWys7xe9Rl0JUyQxmmmw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Usuario\\Documents\\ULBRA\\ULBRA 2022\\Orientação a objetos\\POO-2022-1B\\POO-AS\\POO-2022-1-AS\\Data\\Data.csproj",
+  "projectFilePath": "C:\\Users\\Usuario\\Documents\\ULBRA\\ULBRA 2022\\Orientação a objetos\\POO-2022-1B\\POO-AS\\POO-2022-1-AS\\data\\Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.data.sqlite.core\\6.0.3\\microsoft.data.sqlite.core.6.0.3.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.3\\microsoft.entityframeworkcore.6.0.3.nupkg.sha512",
