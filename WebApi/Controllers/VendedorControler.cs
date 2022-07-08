@@ -4,43 +4,54 @@ using System.Linq;
 using System.Threading.Tasks;
 using Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using WebApi.ViewModels;
 
 namespace WebApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class VendedorControler : ControllerBase
+    public class VendedorController : ControllerBase
     {
         private readonly IVendedorRepository _repository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public VendedorControler(IVendedorRepository repository)
+        public VendedorController(IVendedorRepository vendedorRepository, IUnitOfWork unitOfWork)
         {
-            this._repository = repository;
+            this._repository = vendedorRepository;
+            this._unitOfWork = unitOfWork;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Get()
+        //-----------------------------------------------
+
+        [HttpGet("api/v1/vendedores")]
+        public async Task<IActionResult> GetAllAsync()
         {
-            var pacientes = await _repository.GetVendedoresAsync();
-            return pacientes.Any()
-            ? Ok(pacientes)
-            : NotFound("Vendedores não encontrados.");
+ 
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
+        [HttpGet("api/v1/vendedores/{id:int}")]
+        public async Task<IActionResult> GetByIdAsync([FromRoute] int id)
         {
-            if(id <= 0) return BadRequest("Vendedor inválido");
-
-            var vendedor = await _repository.GetVendedorByIdAsync(id);
-
-            return vendedor != null
-                ? Ok(vendedor)
-                : NotFound("Vendedor não existe na base de.");
 
         }
 
+        [HttpPost("api/v1/vendedores")]
+        public async Task<IActionResult> PostAsync([FromBody] VendedorViewModel model)
+        {
+          
+        }
 
+        [HttpDelete("api/v1/vendedores/{id:int}")]
+        public async Task<IActionResult> DeleteAsync([FromRoute] int id)
+        {
+ 
+        }
+
+        [HttpPatch("api/v1/vendedores/{id:int}")] 
+        public async Task<IActionResult> PutAsync([FromRoute] int id, [FromBody] VendedorViewModel model)
+        {
+    
+        }
 
     }
 }

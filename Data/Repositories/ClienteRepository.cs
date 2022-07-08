@@ -3,31 +3,42 @@ using Data.Context;
 using Data.Repositories.Interfaces;
 using Domain.Dtos;
 using Domain.Entities;
+using Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace Data.Repositories
 {
-    public class ClienteRepository : BaseRepository, IClienteRepository
+    public class ClienteRepository : IClienteRepository
     {
         private readonly DataContext _context;
-        public ClienteRepository(DataContext context) : base(context)
+        public ClienteRepository(DataContext context)
         {
             _context = context;
         }
 
-       public async Task<IEnumerable<ClienteDto>> GetClientesAsync()
+        public bool Delete(int idEntity)
         {
-            return await _context.DbSetCliente
-                .Select(x => new ClienteDto { Id = x.Id, Nome = x.Nome })
-                .ToListAsync();
+            throw new NotImplementedException();
         }
 
-        public async Task<Cliente> GetClientesByIdAsync(int id)
+        public Task<List<Cliente>> GetAllAsync()
         {
-            return await _context.DbSetCliente
-                .Include(x => x.Pedidos)
-                .Where(x => x.Id == id).FirstOrDefaultAsync();
+            throw new NotImplementedException();
         }
 
+        public Task<Cliente> GetByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Save(Cliente t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Cliente t)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

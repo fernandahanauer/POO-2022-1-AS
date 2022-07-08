@@ -3,56 +3,54 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Data.Repositories.Interfaces;
-using Domain.Entities;
 using Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.ViewModels;
 
 namespace WebApi.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class PedidoController : ControllerBase
+    public class ProdutoController
     {
-        private readonly IPedidoRepository _repository;
+        private readonly IProdutoRepository _repository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public PedidoController(IPedidoRepository pedidoRepository, IUnitOfWork unitOfWork)
+        public ProdutoController(IProdutoRepository produtoRepository, IUnitOfWork unitOfWork)
         {
-            this._repository = pedidoRepository;
+            this._repository = produtoRepository;
             this._unitOfWork = unitOfWork;
         }
 
         //-----------------------------------------------
 
-        [HttpGet("api/v1/pedidos")]
+        [HttpGet("api/v1/produtos")]
         public async Task<IActionResult> GetAllAsync()
         {
  
         }
 
-        [HttpGet("api/v1/pedidos/{id:int}")]
+        [HttpGet("api/v1/produtos/{id:int}")]
         public async Task<IActionResult> GetByIdAsync([FromRoute] int id)
         {
 
         }
 
-        [HttpPost("api/v1/pedidos")]
-        public async Task<IActionResult> PostAsync([FromBody] PedidoViewModel model)
+        [HttpPost("api/v1/produtos")]
+        public async Task<IActionResult> PostAsync([FromBody] ProdutoViewModel model)
         {
           
         }
 
-        [HttpDelete("api/v1/pedidos/{id:int}")]
+        [HttpDelete("api/v1/produtos/{id:int}")]
         public async Task<IActionResult> DeleteAsync([FromRoute] int id)
         {
  
         }
 
-        [HttpPatch("api/v1/pedidos/{id:int}")] 
-        public async Task<IActionResult> PutAsync([FromRoute] int id, [FromBody] PedidoViewModel model)
+        [HttpPatch("api/v1/produtos/{id:int}")] 
+        public async Task<IActionResult> PutAsync([FromRoute] int id, [FromBody] ProdutoViewModel model)
         {
     
         }
+
     }
 }

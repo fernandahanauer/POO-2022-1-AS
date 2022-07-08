@@ -4,10 +4,8 @@ using Domain.Interfaces;
 
 namespace Data.Repositories.Interfaces
 {
-    public interface IProdutoRepository : IBaseRepository
+    public interface IProdutoRepository : IBaseRepository<Produto>
     {
-        Task<IEnumerable<ProdutoDto>> GetProdutosAsync();
-        Task<Produto> GetProdutosByIdAsync(int id);
-        Task<PedidoProduto> GetPedidoProdutoAsync(int pedidoId, int produtoId);
+  
     }
 }

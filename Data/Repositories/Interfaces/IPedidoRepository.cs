@@ -4,10 +4,9 @@ using Domain.Interfaces;
 
 namespace Data.Repositories.Interfaces
 {
-    public interface IPedidoRepository : IBaseRepository
+    public interface IPedidoRepository : IBaseRepository<Pedido>
     {
-        Task<IEnumerable<PedidoDto>> GetPedidosAsync();
-        Task<Pedido> GetPedidosByIdAsync(int id);
+
 
     }
     

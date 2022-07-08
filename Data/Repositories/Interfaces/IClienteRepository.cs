@@ -4,9 +4,8 @@ using Domain.Interfaces;
 
 namespace Data.Repositories.Interfaces
 {
-    public interface IClienteRepository : IBaseRepository
+    public interface IClienteRepository : IBaseRepository<Cliente>
     {
-        Task<IEnumerable<ClienteDto>> GetClientesAsync();
-        Task<Cliente> GetClientesByIdAsync(int id);
+
     }
 }

@@ -10,33 +10,35 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Data.Repositories
 {
-    public class PedidoRepository : BaseRepository, IPedidoRepository
+    public class PedidoRepository : IPedidoRepository
     {
         private readonly DataContext _context;
-        public PedidoRepository(DataContext context) : base(context)
+        public PedidoRepository(DataContext context)
         {
             _context = context;
         }
 
-        public async Task<Pedido> GetPedidosByIdAsync(int id)
+        public bool Delete(int idEntity)
         {
-            return await _context.DbSetPedido
-                .Include(x => x.Produtos)
-                .Include(x => x.Vendedor)
-                .Where(x => x.Id == id)
-                .FirstOrDefaultAsync();
+            throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<PedidoDto>> GetPedidosAsync()
+        public Task<List<Pedido>> GetAllAsync()
         {
-            return await _context.DbSetPedido
-                .Select(x => new PedidoDto { Id = x.Id, 
-                                            DataCompra = x.DataCompra, 
-                                            ValorTotal = x.ValorTotal })
-                .ToListAsync();
+            throw new NotImplementedException();
         }
 
-        public Task<PedidoProduto> GetPedidoProdutoAsync(int pedidoId, int produtoId)
+        public Task<Pedido> GetByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Save(Pedido t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Pedido t)
         {
             throw new NotImplementedException();
         }

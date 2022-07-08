@@ -1,11 +1,13 @@
 namespace Domain.Interfaces
 {
-    public interface IBaseRepository
+    public interface IBaseRepository<Entity>
+    where Entity:class
     {
-        void Add<T>(T entity) where T : class;
-        void Delete<T>(T entity) where T : class;
-        Task<bool> SaveChangesAsync();
-        void Update<T>(T entity) where T : class;
+        Task<Entity> GetByIdAsync(int id);
+        Task<List<Entity>> GetAllAsync();
+        void Save(Entity t);
+        bool Delete(int idEntity);
+        void Update(Entity t);
     }
 
 }

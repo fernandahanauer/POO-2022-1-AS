@@ -3,9 +3,8 @@ using Domain.Entities;
 
 namespace Domain.Interfaces
 {
-    public interface IVendedorRepository : IBaseRepository
+    public interface IVendedorRepository : IBaseRepository<Vendedor>
     {
-        Task<IEnumerable<VendedorDto>> GetVendedoresAsync();
-        Task<Vendedor> GetVendedorByIdAsync(int id);
+ 
     }
 }

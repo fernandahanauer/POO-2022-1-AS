@@ -6,24 +6,36 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Data.Repositories
 {
-    public class VendedorRepository : BaseRepository, IVendedorRepository
+    public class VendedorRepository : IVendedorRepository
     {
         private readonly DataContext _context;
-        public VendedorRepository(DataContext context) : base(context)
+        public VendedorRepository(DataContext context)
         {
             _context = context;
         }
-         public async Task<IEnumerable<VendedorDto>> GetVendedoresAsync()
+
+        public bool Delete(int idEntity)
         {
-            return await _context.DbSetVendedor
-                .Select(x => new VendedorDto {Id = x.Id, Nome = x.Nome, Bonificacao = x.Bonificacao})
-                .ToListAsync();
+            throw new NotImplementedException();
         }
-        public async Task<Vendedor> GetVendedorByIdAsync(int id)
+
+        public Task<List<Vendedor>> GetAllAsync()
         {
-                return await _context.DbSetVendedor
-                .Include(x => x.Pedidos)
-                .Where(x => x.Id == id).FirstOrDefaultAsync();
+            throw new NotImplementedException();
+        }
+
+        public Task<Vendedor> GetByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Save(Vendedor t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Vendedor t)
+        {
+            throw new NotImplementedException();
         }
     }
-}

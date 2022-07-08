@@ -10,33 +10,37 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Data.Repositories
 {
-    public class ProdutoRepository : BaseRepository, IProdutoRepository
+    public class ProdutoRepository : IProdutoRepository
     {
         private readonly DataContext _context;
-        public ProdutoRepository(DataContext context) : base(context)
+        public ProdutoRepository(DataContext context)
         {
             _context = context;
         }
 
-        public async Task<IEnumerable<ProdutoDto>> GetProdutosAsync()
+        public bool Delete(int idEntity)
         {
-            return await _context.DbSetProduto
-                .Select(x => new ProdutoDto { Id = x.Id, Nome = x.Nome, Preco = x.Preco})
-                .ToListAsync();
+            throw new NotImplementedException();
         }
 
-        public async Task<Produto> GetProdutosByIdAsync(int id)
+        public Task<List<Produto>> GetAllAsync()
         {
-             return await _context.DbSetProduto
-                .Include(x => x.Categoria)
-                .Where(x => x.Id == id).FirstOrDefaultAsync();
+            throw new NotImplementedException();
         }
 
-        public async Task<PedidoProduto> GetPedidoProdutoAsync(int pedidoId, int produtoId)
+        public Task<Produto> GetByIdAsync(int id)
         {
-            return await _context.DbSetPedidoProduto
-                .Where(x => x.ProdutoId == produtoId && x.PedidoId == pedidoId)
-                .FirstOrDefaultAsync();
+            throw new NotImplementedException();
+        }
+
+        public void Save(Produto t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Produto t)
+        {
+            throw new NotImplementedException();
         }
     }
 }

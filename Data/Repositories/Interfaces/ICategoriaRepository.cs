@@ -4,9 +4,8 @@ using Domain.Interfaces;
 
 namespace Data.Repositories.Interfaces
 {
-    public interface ICategoriaRepository : IBaseRepository
+    public interface ICategoriaRepository : IBaseRepository<Categoria>
     {
-        Task<IEnumerable<CategoriaDto>> GetCategoriasAsync();
-        Task<Categoria> GetCategoriasByIdAsync(int id);
+
     }
 }

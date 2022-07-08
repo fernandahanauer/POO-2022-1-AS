@@ -10,27 +10,37 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Data.Repositories
 {
-    public class CategoriaRepository : BaseRepository, ICategoriaRepository
+    public class CategoriaRepository : ICategoriaRepository
     {
         private readonly DataContext _context;
-        public CategoriaRepository(DataContext context) : base(context)
+        public CategoriaRepository(DataContext context)
         {
             _context = context;
         }
 
-        public async Task<IEnumerable<CategoriaDto>> GetCategoriasAsync()
+        public bool Delete(int idEntity)
         {
-            return await _context.DbSetCategoria
-                .Select(x => new CategoriaDto { Id = x.Id, Nome = x.Nome })
-                .ToListAsync();
+            throw new NotImplementedException();
         }
 
-        public async Task<Categoria> GetCategoriasByIdAsync(int id)
+        public Task<List<Categoria>> GetAllAsync()
         {
-                return await _context.DbSetCategoria
-                .Include(x => x.Produtos)
-                .Where(x => x.Id == id)
-                .FirstOrDefaultAsync();
+            throw new NotImplementedException();
+        }
+
+        public Task<Categoria> GetByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Save(Categoria t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Categoria t)
+        {
+            throw new NotImplementedException();
         }
     }
 }
