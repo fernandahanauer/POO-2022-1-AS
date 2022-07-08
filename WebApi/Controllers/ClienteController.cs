@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Data.Repositories.Interfaces;
 using Domain.Dtos;
 using Domain.Entities;
@@ -29,45 +25,93 @@ namespace WebApi.Controllers
         {
              var clienteList = await _repository.GetAllAsync();
 
-            List<ClienteDto> clienteDTO = new List<ClienteDto>();
+            List<ClienteDto> clientesDto = new List<ClienteDto>();
 
             foreach (Cliente cliente in clienteList)
             {
                 var clienteDto = new ClienteDto()
                 {
                     Id = cliente.Id,
-                    Name = cliente.Name,
-e
+                    Nome = cliente.Nome,
                 };
 
-                clientsDTO.Add(clientDTO);
+                clientesDto.Add(clienteDto);
             }
 
-            return Ok(clientsDTO);
+            return Ok(clientesDto);
         }
 
         [HttpGet("api/v1/clientes/{id:int}")]
         public async Task<IActionResult> GetByIdAsync([FromRoute] int id)
         {
+            var cliente = await _repository.GetByIdAsync(id);
 
+            if (cliente == null)
+                return NotFound();
+            else
+            {
+                var clienteDto = new ClienteDto()
+                {
+                    Id = cliente.Id,
+                    Nome = cliente.Nome,
+                };
+
+                return Ok(clienteDto);
+            }
         }
 
         [HttpPost("api/v1/clientes")]
         public async Task<IActionResult> PostAsync([FromBody] ClienteViewModelPost model)
         {
-          
+            var cliente = new Cliente
+            {
+                Nome = model.Nome,
+
+            };
+
+            _repository.Save(cliente);
+            await _unitOfWork.CommitAsync();
+
+            return Ok(new
+            {
+                message = "Cliente " + cliente.Nome + " foi adicionado com sucesso!"
+            });
         }
 
         [HttpDelete("api/v1/clientes/{id:int}")]
         public async Task<IActionResult> DeleteAsync([FromRoute] int id)
         {
- 
+            var clienteDel = _repository.Delete(id);
+            await _unitOfWork.CommitAsync();
+
+            if (clienteDel == false)
+                return NotFound();
+            else
+                return Ok(id);
         }
 
         [HttpPatch("api/v1/clientes/{id:int}")] 
         public async Task<IActionResult> PutAsync([FromRoute] int id, [FromBody] ClienteViewModelPatch model)
         {
-    
+            var cliente = await _repository.GetByIdAsync(id);
+
+            if (cliente == null)
+                return NotFound();
+            else
+            {
+                cliente.Nome = model.Nome;
+
+                _repository.Update(cliente);
+                await _unitOfWork.CommitAsync();
+
+                var clienteDto = new ClientDto()
+                {
+                    Id = cliente.Id,
+                    Nome = cliente.Nome,
+                };
+
+                return Ok(clienteDto);
+            }
         }
     }
 }
