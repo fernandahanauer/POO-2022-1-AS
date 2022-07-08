@@ -36,11 +36,9 @@ namespace Data.Repositories
                 .ToListAsync();
         }
 
-        public async Task<PedidoProduto> GetPedidoProdutoAsync(int pedidoId, int produtoId)
+        public Task<PedidoProduto> GetPedidoProdutoAsync(int pedidoId, int produtoId)
         {
-            return await _context.DbSetPedidoProduto
-                .Where(x => x.PedidoId == pedidoId && x.ProdutoId == produtoId)
-                .FirstOrDefaultAsync();
+            throw new NotImplementedException();
         }
     }
 }

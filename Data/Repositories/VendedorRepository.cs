@@ -13,19 +13,17 @@ namespace Data.Repositories
         {
             _context = context;
         }
-
+         public async Task<IEnumerable<VendedorDto>> GetVendedoresAsync()
+        {
+            return await _context.DbSetVendedor
+                .Select(x => new VendedorDto {Id = x.Id, Nome = x.Nome, Bonificacao = x.Bonificacao})
+                .ToListAsync();
+        }
         public async Task<Vendedor> GetVendedorByIdAsync(int id)
         {
                 return await _context.DbSetVendedor
                 .Include(x => x.Pedidos)
                 .Where(x => x.Id == id).FirstOrDefaultAsync();
-        }
-
-        public async Task<IEnumerable<VendedorDto>> GetVendedoresAsync()
-        {
-            return await _context.DbSetVendedor
-                .Select(x => new VendedorDto {Id = x.Id, Nome = x.Nome, Bonificacao = x.Bonificacao})
-                .ToListAsync();
         }
     }
 }

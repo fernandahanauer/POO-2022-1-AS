@@ -31,6 +31,12 @@ namespace Data.Repositories
                 .Include(x => x.Categoria)
                 .Where(x => x.Id == id).FirstOrDefaultAsync();
         }
-    
+
+        public async Task<PedidoProduto> GetPedidoProdutoAsync(int pedidoId, int produtoId)
+        {
+            return await _context.DbSetPedidoProduto
+                .Where(x => x.ProdutoId == produtoId && x.PedidoId == pedidoId)
+                .FirstOrDefaultAsync();
+        }
     }
 }

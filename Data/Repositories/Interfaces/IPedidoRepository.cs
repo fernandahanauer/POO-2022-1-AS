@@ -8,7 +8,7 @@ namespace Data.Repositories.Interfaces
     {
         Task<IEnumerable<PedidoDto>> GetPedidosAsync();
         Task<Pedido> GetPedidosByIdAsync(int id);
-        Task<PedidoProduto> GetPedidoProdutoAsync(int pedidoId, int produtoId);
+
     }
     
 }

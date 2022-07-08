@@ -21,7 +21,7 @@ namespace WebApi.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var pacientes = await _repository.GetVendedores();
+            var pacientes = await _repository.GetVendedoresAsync();
             return pacientes.Any()
             ? Ok(pacientes)
             : NotFound("Vendedores não encontrados.");
@@ -32,7 +32,7 @@ namespace WebApi.Controllers
         {
             if(id <= 0) return BadRequest("Vendedor inválido");
 
-            var vendedor = await _repository.GetVendedorById(id);
+            var vendedor = await _repository.GetVendedorByIdAsync(id);
 
             return vendedor != null
                 ? Ok(vendedor)
