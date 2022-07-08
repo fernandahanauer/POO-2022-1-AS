@@ -6,8 +6,7 @@ namespace Data.Repositories.Interfaces
 {
     public interface IPedidoRepository : IBaseRepository<Pedido>
     {
-
-
+        Task<PedidoProduto> GetPedidoprodutoAsync(int pedidoId, int produtoId);
     }
     
 }

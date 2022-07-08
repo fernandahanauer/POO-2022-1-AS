@@ -1,5 +1,6 @@
 using Data.Context;
 using Data.Repositories;
+using Data.Repositories.Interfaces;
 using Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,10 +16,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataContext>(
                 x=>x.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IVendedorRepository,VendedorRepository>();
-//builder.Services.AddScoped<IClienteRepository,ClienteRepository>();
-//builder.Services.AddScoped<IPedidoRepository,PedidoRepository>();
-//builder.Services.AddScoped<ICategoriaRepository,CategoriaRepository>();
-//builder.Services.AddScoped<IPedidoProdutoRepository,PedidoProdutoRepository>();
+builder.Services.AddScoped<IClienteRepository,ClienteRepository>();
+builder.Services.AddScoped<IPedidoRepository,PedidoRepository>();
+builder.Services.AddScoped<ICategoriaRepository,CategoriaRepository>();
 
 var app = builder.Build();
 
