@@ -16,26 +16,32 @@ namespace Data.Repositories
 
         public bool Delete(int idEntity)
         {
-            throw new NotImplementedException();
+            var vendedor = _context.DbSetVendedor.FirstOrDefault(i => i.Id == idEntity);
+            if (vendedor == null)
+                return false;
+            else
+            {
+                _context.DbSetVendedor.Remove(vendedor);
+                return true;
+            }
         }
 
-        public Task<List<Vendedor>> GetAllAsync()
+        public async Task<List<Vendedor>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _context.DbSetVendedor.ToListAsync();
         }
 
-        public Task<Vendedor> GetByIdAsync(int id)
+        public async Task<Vendedor> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.DbSetVendedor.SingleOrDefaultAsync(i => i.Id == id);
         }
 
-        public void Save(Vendedor t)
-        {
-            throw new NotImplementedException();
-        }
+        public void Save(Vendedor t) => _context.Add(t);
+
 
         public void Update(Vendedor t)
         {
-            throw new NotImplementedException();
+            _context.Entry(t).State = EntityState.Modified;
         }
     }
+}

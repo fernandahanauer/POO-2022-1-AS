@@ -1,9 +1,6 @@
-
 using Data.Context;
 using Data.Repositories.Interfaces;
-using Domain.Dtos;
 using Domain.Entities;
-using Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace Data.Repositories
@@ -18,27 +15,36 @@ namespace Data.Repositories
 
         public bool Delete(int idEntity)
         {
-            throw new NotImplementedException();
+            var cliente = _context.DbSetCliente.FirstOrDefault(i => i.Id == idEntity);
+
+            if (cliente == null)
+                return false;
+            else
+            {
+                _context.DbSetCliente.Remove(cliente);
+                return true;
+            }
         }
 
-        public Task<List<Cliente>> GetAllAsync()
+        public async Task<List<Cliente>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _context.DbSetCliente.ToListAsync();
         }
 
-        public Task<Cliente> GetByIdAsync(int id)
+        public async Task<Cliente> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.DbSetCliente.SingleOrDefaultAsync(i => i.Id == id);
         }
 
         public void Save(Cliente t)
         {
-            throw new NotImplementedException();
+            _context.DbSetCliente.Add(t);
         }
 
         public void Update(Cliente t)
         {
-            throw new NotImplementedException();
+            _context.Entry(t).State = EntityState.Modified;
+
         }
     }
 }

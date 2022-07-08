@@ -18,29 +18,34 @@ namespace Data.Repositories
             _context = context;
         }
 
-        public bool Delete(int idEntity)
+       public bool Delete(int idEntity)
         {
-            throw new NotImplementedException();
+            var pedido = _context.DbSetPedido.FirstOrDefault(i => i.Id == idEntity);
+            if (pedido == null)
+                return false;
+            else
+            {
+                _context.DbSetPedido.Remove(pedido);
+                return true;
+            }
         }
 
-        public Task<List<Pedido>> GetAllAsync()
+        public async Task<List<Pedido>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _context.DbSetPedido.ToListAsync();
         }
 
-        public Task<Pedido> GetByIdAsync(int id)
+        public async Task<Pedido> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.DbSetPedido.SingleOrDefaultAsync(i => i.Id == id);
         }
 
-        public void Save(Pedido t)
-        {
-            throw new NotImplementedException();
-        }
+        public void Save(Pedido t) => _context.Add(t);
+
 
         public void Update(Pedido t)
         {
-            throw new NotImplementedException();
+            _context.Entry(t).State = EntityState.Modified;
         }
     }
 }
