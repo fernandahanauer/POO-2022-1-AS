@@ -7,7 +7,9 @@ using WebApi.ViewModels;
 
 namespace WebApi.Controllers
 {
-    public class ClienteController
+    [ApiController]
+    [Route("api/[controller]")]
+    public class ClienteController : ControllerBase
     {
         private readonly IClienteRepository _repository;
         private readonly IUnitOfWork _unitOfWork;
@@ -104,7 +106,7 @@ namespace WebApi.Controllers
                 _repository.Update(cliente);
                 await _unitOfWork.CommitAsync();
 
-                var clienteDto = new ClientDto()
+                var clienteDto = new ClienteDto()
                 {
                     Id = cliente.Id,
                     Nome = cliente.Nome,

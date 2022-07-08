@@ -4,11 +4,12 @@ using Domain.Dtos;
 using Domain.Entities;
 using Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using WebApi.ViewModels;
 
 namespace WebApi.Controllers
 {
-    public class CategoriaController
+    [ApiController]
+    [Route("api/[controller]")]
+    public class CategoriaController : ControllerBase
     {
         private readonly ICategoriaRepository _repository;
         private readonly IUnitOfWork _unitOfWork;

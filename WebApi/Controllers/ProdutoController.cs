@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Data.Repositories.Interfaces;
 using Domain.Dtos;
 using Domain.Entities;
@@ -11,7 +7,9 @@ using WebApi.ViewModels;
 
 namespace WebApi.Controllers
 {
-    public class ProdutoController
+    [ApiController]
+    [Route("api/[controller]")]
+    public class ProdutoController : ControllerBase
     {
         private readonly IProdutoRepository _repository;
         private readonly IUnitOfWork _unitOfWork;
@@ -33,19 +31,15 @@ namespace WebApi.Controllers
 
             foreach (Produto produto in produtosList)
             {
+                var produtoDto = new ProdutoDto()
                 {
-                    var produtoDto = new ProdutoDto()
-                    {
-                        Id = produto.Id,
-                        Nome = produto.Nome,
-                        Preco = produto.Preco,
-                    };
-                    ProdutoDto.Add(produtosDto);
-
-                }
-
-                return Ok(produtosDto);
+                    Id = produto.Id,
+                    Nome = produto.Nome,
+                    Preco = produto.Preco,
+                };
+                produtosDto.Add(produtoDto);
             }
+            return Ok(produtosDto);
         }
 
         [HttpGet("api/v1/produtos/{id:int}")]

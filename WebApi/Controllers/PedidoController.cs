@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Data.Repositories.Interfaces;
 using Domain.Dtos;
 using Domain.Entities;
@@ -106,8 +102,8 @@ namespace WebApi.Controllers
                 return NotFound();
             else
             {
-                pedido.DataCompra = model.DataCompra,
-                pedido.ValorTotal = model.ValorTotal,
+                pedido.DataCompra = model.DataCompra;
+                pedido.ValorTotal = model.ValorTotal;
 
                 _repository.Update(pedido);
                 await _unitOfWork.CommitAsync();
